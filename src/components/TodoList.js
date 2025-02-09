@@ -1,5 +1,6 @@
 import * as React from "react";
 
+
 import Container from "@mui/material/Container";
 
 import Card from "@mui/material/Card";
@@ -15,6 +16,8 @@ import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
 import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
 import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
+// Components 
+import Todo from "./Todo";
 export default function TodoList() {
   return (
     <Container maxWidth="sm">
@@ -26,7 +29,7 @@ export default function TodoList() {
           </Typography>
           <Divider/>
           {/* Filter Buttons  */}
-          <ToggleButtonGroup
+           <ToggleButtonGroup
           style={{direction:"ltr" ,marginTop:"20px"}}
     //   value={alignment}
       exclusive
@@ -47,14 +50,17 @@ export default function TodoList() {
       
       
     </ToggleButtonGroup>
+        
           {/* Filter Buttons  */}
+          {/* All Todos  */}
+          <Todo/>
+          {/* All Todos  */}
           
          
         </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
+       
       </Card>
+     
     </Container>
   );
 }
