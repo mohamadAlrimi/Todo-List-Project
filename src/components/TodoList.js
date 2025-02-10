@@ -20,35 +20,50 @@ import TextField from "@mui/material/TextField";
 // Components
 import Todo from "./Todo";
 //  Others
-import { v4 as uuidv4 } from "uuid";
-const todos = [
+import { v4 as idv4 } from "uuid";
+import { useState } from "react";
+
+const initialTodos = [
   {
-    id: uuidv4(),
+    id: idv4(),
     title: "jjjgjgh",
     details: "kdhsfhgh",
     isCompleted: false,
   },
   {
-    id: uuidv4(),
+    id: idv4(),
     title: "jjjgjgh",
     details: "kdhsfhgh",
     isCompleted: false,
   },
   {
-    id: uuidv4(),
+    id: idv4(),
     title: "jjjgjgh",
     details: "kdhsfhgh",
     isCompleted: false,
   },
 ];
 export default function TodoList() {
+  const [todos , setTodos]= useState(initialTodos)
+  const [titleInput , setTitleInput]=useState("")
   const todoJsx = todos.map((t) => {
     return (
-      <>
-        <Todo key={t.id} title={t.title} details={t.details} />
-      </>
+   
+        <Todo key={t.id} title={t.title} details={t.details}  />
+    
     );
   });
+  function handlAddClick(){
+const newTodo = {
+  id : idv4(),
+  title: titleInput,
+  details:"" ,
+  isCompleted : false 
+
+}
+setTodos([...todos , newTodo])
+setTitleInput("")
+  }
   return (
     <Container maxWidth="sm">
       <Card sx={{ minWidth: 275 }}>
@@ -88,6 +103,10 @@ export default function TodoList() {
                 id="outlined-basic"
                 label="عنوان المهمة"
                 variant="outlined"
+                value={titleInput}
+                onChange={(e)=>{
+                  setTitleInput(e.target.value)
+                }}
               />
             </Grid>
             <Grid
@@ -100,6 +119,9 @@ export default function TodoList() {
               <Button
                 style={{ width: "100%", height: "100%" }}
                 variant="contained"
+                onClick={()=>{
+                  handlAddClick();
+                }}
               >
                 {" "}
                 اضافة
