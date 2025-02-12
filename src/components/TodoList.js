@@ -38,7 +38,7 @@ const initialTodos = [
   },
   {
     id: idv4(),
-    title: "jjjgjgh",
+    title: "title 1",
     details: "kdhsfhgh",
     isCompleted: false,
   },
