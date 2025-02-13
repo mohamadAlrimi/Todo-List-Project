@@ -43,13 +43,23 @@ const initialTodos = [
     isCompleted: false,
   },
 ];
+
+
 export default function TodoList() {
   const [todos , setTodos]= useState(initialTodos)
   const [titleInput , setTitleInput]=useState("")
+  function handleCheckClick (todoId){
+  const updateTodo = todos.map((t) => {
+    if(t.id===todoId)
+      t.isCompleted = ! t.isCompleted ;
+    return t;
+  });
+  setTodos(updateTodo)
+  }
   const todoJsx = todos.map((t) => {
     return (
    
-        <Todo key={t.id} title={t.title} details={t.details}  />
+        <Todo key={t.id} todo ={t}  handleCkeck ={handleCheckClick} />
     
     );
   });

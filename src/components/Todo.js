@@ -11,26 +11,35 @@ import IconButton from '@mui/material/IconButton';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
-export default function Todo({title ,details}){
+export default function Todo({todo,handleCkeck}){
+  function handleCheckClick (){
+    handleCkeck(todo.id);
+  }
     return((<> <Card className="todoCard" sx={{ minWidth: 275  ,background:"#283593" ,color:"white" ,marginTop : 5}}>
         <CardContent>
         <Grid container spacing={2}>
         <Grid size={8} >
         <Typography variant="h5"  sx={{textAlign:"right"}}
           >
-         {title}
+         {todo.title}
           </Typography>
         <Typography variant="h6"  sx={{textAlign:"right"}}
           >
-     {details}
+     {todo.details}
           </Typography>
           
         </Grid>
         {/* Action Button  */}
         <Grid size={4}  display="flex" justifyContent="space-around" alignItems="center">
-        <IconButton  className="iconButton" style={{color:"#8bc34a", background:"white", border: "solid #8bc34a 3px"}}>
+
+
+          {/* Check icon button  */}
+        <IconButton onClick={()=>{
+          handleCheckClick();
+        }} className="iconButton" style={{color: todo.isCompleted ?"white" :"#8bc34a" , background: todo.isCompleted ?"#8bc34a" :"white", border: "solid #8bc34a 3px"}}>
         < CheckIcon/>
       </IconButton>
+        {/* Check icon button  */}
         <IconButton  className="iconButton" style={{color:"#1769aa", background:"white", border: "solid #1769aa 3px"}}>
         < ModeEditOutlineOutlinedIcon/>
       </IconButton>
