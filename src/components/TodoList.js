@@ -20,46 +20,49 @@ import TextField from "@mui/material/TextField";
 // Components
 import Todo from "./Todo";
 //  Others
-import { v4 as idv4 } from "uuid";
+import { useContext } from "react"; 
+import { TodosContext } from "../context/todosContext";
 import { useState } from "react";
+import { v4 as idv4 } from "uuid";
 
-const initialTodos = [
-  {
-    id: idv4(),
-    title: "jjjgjgh",
-    details: "kdhsfhgh",
-    isCompleted: false,
-  },
-  {
-    id: idv4(),
-    title: "jjjgjgh",
-    details: "kdhsfhgh",
-    isCompleted: false,
-  },
-  {
-    id: idv4(),
-    title: "title 1",
-    details: "kdhsfhgh",
-    isCompleted: false,
-  },
-];
+// const initialTodos = [
+//   {
+//     id: idv4(),
+//     title: "jjjgjgh",
+//     details: "kdhsfhgh",
+//     isCompleted: false,
+//   },
+//   {
+//     id: idv4(),
+//     title: "jjjgjgh",
+//     details: "kdhsfhgh",
+//     isCompleted: false,
+//   },
+//   {
+//     id: idv4(),
+//     title: "title 1",
+//     details: "kdhsfhgh",
+//     isCompleted: false,
+//   },
+// ];
 
 
 export default function TodoList() {
-  const [todos , setTodos]= useState(initialTodos)
+  const {todos ,setTodos} = useContext(TodosContext)
+
   const [titleInput , setTitleInput]=useState("")
-  function handleCheckClick (todoId){
-  const updateTodo = todos.map((t) => {
-    if(t.id===todoId)
-      t.isCompleted = ! t.isCompleted ;
-    return t;
-  });
-  setTodos(updateTodo)
-  }
+  // function handleCheckClick (todoId){
+  // const updateTodo = todos.map((t) => {
+  //   if(t.id===todoId)
+  //     t.isCompleted = ! t.isCompleted ;
+  //   return t;
+  // });
+  // setTodos(updateTodo)
+  // }
   const todoJsx = todos.map((t) => {
     return (
    
-        <Todo key={t.id} todo ={t}  handleCkeck ={handleCheckClick} />
+        <Todo key={t.id} todo ={t}   />
     
     );
   });

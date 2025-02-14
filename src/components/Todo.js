@@ -10,10 +10,18 @@ import CheckIcon from '@mui/icons-material/Check';
 import IconButton from '@mui/material/IconButton';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import { useContext } from "react";
+import { TodosContext } from "../context/todosContext";
 
 export default function Todo({todo,handleCkeck}){
+  const {todos,setTodos  } = useContext(TodosContext);
   function handleCheckClick (){
-    handleCkeck(todo.id);
+    const updateTodo = todos.map((t) => {
+      if(t.id=== todo.id)
+        t.isCompleted = ! t.isCompleted ;
+      return t;
+    });
+    setTodos(updateTodo)
   }
     return((<> <Card className="todoCard" sx={{ minWidth: 275  ,background:"#283593" ,color:"white" ,marginTop : 5}}>
         <CardContent>
