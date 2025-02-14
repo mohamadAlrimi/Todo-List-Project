@@ -7,29 +7,29 @@ import { v4 as idv4 } from "uuid";
 import { useState } from "react";
 const theme = createTheme({
   typography:{
-    fontFamily:["Alexandria"]
+    fontFamily:[""]
   }
 });
 
 const initialTodos = [
   {
     id: idv4(),
-    title: "jjjgjgh",
-    details: "kdhsfhgh",
+    title: "  عنوان المهمة   ",
+    details: "شرح توضيحي  حول المهمة",
     isCompleted: false,
   },
-  {
-    id: idv4(),
-    title: "jjjgjgh",
-    details: "kdhsfhgh",
-    isCompleted: false,
-  },
-  {
-    id: idv4(),
-    title: "title 1",
-    details: "kdhsfhgh",
-    isCompleted: false,
-  },
+  // {
+  //   id: idv4(),
+  //   title: "jjjgjgh",
+  //   details: "kdhsfhgh",
+  //   isCompleted: false,
+  // },
+  // {
+  //   id: idv4(),
+  //   title: "title 1",
+  //   details: "kdhsfhgh",
+  //   isCompleted: false,
+  // },
 ];
 
 function App() {
