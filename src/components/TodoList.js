@@ -20,7 +20,7 @@ import TextField from "@mui/material/TextField";
 // Components
 import Todo from "./Todo";
 //  Others
-import { useContext ,useState ,useEffect} from "react"; 
+import { useContext ,useState ,useEffect ,useMemo} from "react"; 
 import { TodosContext } from "../context/TodosContext";
 import { v4 as idv4 } from "uuid";
 
@@ -61,13 +61,17 @@ export default function TodoList() {
   // }
 
   // filteration arrays 
-  const completedTodos = todos.filter((t)=>{
-    return t.isCompleted
-  }) ;
+  const completedTodos = useMemo(()=>{
+     return todos.filter((t)=>{
+      return t.isCompleted
+    }) ;
+  } , [todos])
     // filteration arrays 
-    const notCompletedTodos = todos.filter((t)=>{
-      return !t.isCompleted
-    })   
+    const notCompletedTodos = useMemo(()=>{
+       return todos.filter((t)=>{
+        return !t.isCompleted
+      }) 
+    } , [todos])  
     let todosToBeRendered = todos
     if(displayedTodosType==="completed"){
       todosToBeRendered = completedTodos
