@@ -8,6 +8,11 @@ import { useState } from "react";
 const theme = createTheme({
   typography:{
     fontFamily:[""]
+  },
+  palette:{
+    primary:{
+      main:"#004d40"
+    }
   }
 });
 

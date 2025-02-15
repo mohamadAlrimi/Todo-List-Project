@@ -86,7 +86,7 @@ export default function TodoList() {
 
 
   useEffect(() => {
-const storagetodos =JSON.parse(localStorage.getItem("todos"));
+const storagetodos =JSON.parse(localStorage.getItem("todos")) ?? [];
 setTodos(storagetodos)
   },[]);
   function changeDisplayedType(e){
@@ -107,7 +107,9 @@ setTitleInput("")
   }
   return (
     <Container maxWidth="sm">
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 275 }}
+      style={{maxHeight:"80vh" , overflow:"scroll"}}
+      >
         <CardContent>
           <Typography variant="h2" style={{ fontWeight: "bold" }}>
             مهامي
@@ -120,6 +122,7 @@ setTitleInput("")
             exclusive
               onChange={changeDisplayedType}
             aria-label="text alignment"
+            color="primary"
           >
             <ToggleButton value="non-completed">غير المنجز</ToggleButton>
             <ToggleButton value="completed">المنجز</ToggleButton>
@@ -163,6 +166,7 @@ setTitleInput("")
                 onClick={()=>{
                   handlAddClick();
                 }}
+                disabled={titleInput.length===0}
               >
                 {" "}
                 اضافة
