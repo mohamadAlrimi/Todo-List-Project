@@ -11,7 +11,7 @@ import IconButton from "@mui/material/IconButton";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import { useContext, useState } from "react";
-import { TodosContext } from "../context/todosContext";
+import { TodosContext } from "../context/TodosContext";
 // Dialog
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -32,6 +32,7 @@ export default function Todo({ todo, handleCkeck }) {
       return t;
     });
     setTodos(updateTodo);
+    localStorage.setItem("todos",JSON.stringify(updateTodo))
   }
   function handleDeleteClick() {
     setShowDeleteDialog(true);
@@ -50,6 +51,7 @@ export default function Todo({ todo, handleCkeck }) {
       return t.id !== todo.id;
     });
     setTodos(updatedTodos);
+    localStorage.setItem("todos",JSON.stringify(updatedTodos))
   }
   function handleUpdateConfirm() {
    const updatedTodos= todos.map((t)=>{
@@ -61,6 +63,7 @@ export default function Todo({ todo, handleCkeck }) {
    }) 
    setTodos(updatedTodos)
    setShowUpdateDialog(false)
+   localStorage.setItem("todos",JSON.stringify(updatedTodos))
   }
   // ----EVENTS HANDLERS
 

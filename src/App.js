@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import TodoList from './components/TodoList';
 import { createTheme,ThemeProvider  } from '@mui/material/styles';
-import { TodosContext } from './context/todosContext';
+import { TodosContext } from './context/TodosContext';
 import { v4 as idv4 } from "uuid";
 import { useState } from "react";
 const theme = createTheme({
