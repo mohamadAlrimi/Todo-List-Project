@@ -201,7 +201,7 @@ export default function Todo({ todo, handleCkeck }) {
                   border: "solid #b23c17 3px",
                 }}
               >
-                <DeleteOutlineOutlinedIcon />
+                <DeleteOutlineOutlinedIcon   />
               </IconButton>
               {/* -----Delete dialog  */}
             </Grid>
