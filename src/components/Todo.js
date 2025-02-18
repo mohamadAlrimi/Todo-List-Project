@@ -166,7 +166,7 @@ export default function Todo({ todo, handleCkeck }) {
               {/* Check icon button  */}
               <IconButton
                 onClick={() => {
-                  handleCheckClick();
+                  handleCheckClick( );
                 }}
                 className="iconButton"
                 style={{
